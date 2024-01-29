@@ -8,29 +8,30 @@ import UploadModal from "@/components/UploadModal";
 import { ProductWithPrice } from "@/types";
 
 interface ModalProviderProps {
-    products: ProductWithPrice[];
+  products: ProductWithPrice[];
 }
 
 const ModalProvider: React.FC<ModalProviderProps> = ({
-    products
+  products
 }) => {
-    const [isMounted, setIsMounted] = useState(false);
+  const [isMounted, setIsMounted] = useState(false);
 
-    useEffect(() => {
-        setIsMounted(true);
-    }, []);
+  useEffect(() => {
+    setIsMounted(true);
+  }, []);
 
-    if (!isMounted) {
-        return null;
-    }
+  if (!isMounted) {
+    return null;
+  }
 
-    return ( 
-        <>
-            <AuthModal />
-            <SubscribeModal products={products} />
-            <UploadModal />
-        </>
-     );
+  return (
+    <>
+      <AuthModal />
+      <SubscribeModal products={products} />
+      <UploadModal />
+    </>
+  );
 }
- 
+
 export default ModalProvider;
+

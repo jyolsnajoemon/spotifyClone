@@ -1,22 +1,22 @@
-import { Figtree } from "next/font/google";
+import { Figtree } from 'next/font/google'
 
-import getSongsByUserId from "@/actions/getSongsByUserId";
-import getActiveProductsWithPrices from "@/actions/getActiveProductsWithPrices";
-import Sidebar from "@/components/Sidebar";
-import ToasterProvider from "@/providers/ToasterProvider";
-import UserProvider from "@/providers/UserProvider";
-import ModalProvider from "@/providers/ModalProvider";
-import SupabaseProvider from "@/providers/SupabaseProvider";
-import Player from "@/components/Player";
+import getSongsByUserId from '@/actions/getSongsByUserId'
+import getActiveProductsWithPrices from '@/actions/getActiveProductsWithPrices'
+import Sidebar from '@/components/Sidebar'
+import ToasterProvider from '@/providers/ToasterProvider'
+import UserProvider from '@/providers/UserProvider'
+import ModalProvider from '@/providers/ModalProvider'
+import SupabaseProvider from '@/providers/SupabaseProvider'
+import Player from '@/components/Player'
 
-import "./globals.css";
+import './globals.css'
 
-const font = Figtree({ subsets: ["latin"] });
+const font = Figtree({ subsets: ['latin'] })
 
 export const metadata = {
-  title: "Spotify Clone",
-  description: "Spotify Clone",
-};
+  title: 'Spotify Clone',
+  description: 'Spotify Clone',
+}
 
 export const revalidate = 0;
 
@@ -35,7 +35,9 @@ export default async function RootLayout({
         <SupabaseProvider>
           <UserProvider>
             <ModalProvider products={products} />
-            <Sidebar songs={userSongs}>{children}</Sidebar>
+            <Sidebar songs={userSongs}>
+              {children}
+            </Sidebar>
             <Player />
           </UserProvider>
         </SupabaseProvider>
